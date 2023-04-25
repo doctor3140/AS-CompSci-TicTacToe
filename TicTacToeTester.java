@@ -4,7 +4,9 @@ public class TicTacToeTester
 {
     public static void main(String[] args)
     {
+	argTools cli = new argTools(args);    
         TicTacToe game = new TicTacToe();
+	CPU cpu = new CPU();
         game.printBoard();
         System.out.println("Enter move in row then col");
         System.out.println("EX: 0 0");
@@ -27,8 +29,9 @@ public class TicTacToeTester
         
         if(game.checkWin())
             break;
-
+	
         System.out.println("Player Two move:");
+	if(cli.hasArg("--interact")){
         row = input.nextInt();
         col = input.nextInt();
         while(!game.pickLocation(row, col)){
@@ -38,6 +41,11 @@ public class TicTacToeTester
         }
         System.out.println(" ");
         game.takeTurn(row, col);
+	}
+	else{
+	cpu.randomMove(game);
+	}
+
         game.printBoard();
 	//System.out.println(game.getMark()+" has "+game.possibleWins()+" possible wins");
         }
