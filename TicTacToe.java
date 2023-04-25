@@ -158,6 +158,21 @@ public String getMark(){
            return false;
        }
    }
+
+   public boolean checkTie(){
+	 if(turn>1){
+		int count = 0;
+	for(int i =0; i<board.length; i++){
+            for(int j=0;j<board[i].length;j++){
+               if(board[i][j].equals("-"))
+		       return false;            
+	    }
+	 }
+	return true;
+	 }
+	 else
+		 return false;	 
+   } 
   
    //methods for checking possible wins //
 

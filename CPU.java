@@ -14,7 +14,7 @@ public void randomMove(TicTacToe game){
 public int randomSpot(){
 	double randomNum = Math.random()*(3); //2 for the array
         int i = ((int)randomNum);
-	System.out.println(i);
+	//System.out.println(i);
 	return i;
 }
 }

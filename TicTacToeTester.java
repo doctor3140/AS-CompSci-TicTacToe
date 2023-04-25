@@ -10,7 +10,7 @@ public class TicTacToeTester
         game.printBoard();
         System.out.println("Enter move in row then col");
         System.out.println("EX: 0 0");
-        while(!game.checkWin())
+        while(!game.checkWin()||!game.checkTie())
         { 
 	System.out.println(game.getMark()+" has "+game.possibleWins()+" possible wins");
 	System.out.println("Player one move:");
@@ -27,7 +27,7 @@ public class TicTacToeTester
         game.printBoard();
 	System.out.println(game.getMark()+" has "+game.possibleWins()+" possible wins");
         
-        if(game.checkWin())
+        if(game.checkWin()||game.checkTie())
             break;
 	
         System.out.println("Player Two move:");
@@ -47,13 +47,18 @@ public class TicTacToeTester
 	}
 
         game.printBoard();
+	if(game.checkWin()||game.checkTie())
+            break;
 	//System.out.println(game.getMark()+" has "+game.possibleWins()+" possible wins");
         }
-        if(game.getTurn()%2==0)
+	if(game.checkWin()){
+	if(game.getTurn()%2==0)
             System.out.println("Player Two Wins!");
         else
             System.out.println("Player One Wins!");
-        
+	}
+	else
+	    System.out.println("Tie"); 
     }
     
 }
