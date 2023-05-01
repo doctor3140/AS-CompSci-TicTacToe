@@ -6,7 +6,7 @@ public class TicTacToeTester
     {
 	argTools cli = new argTools(args);    
         TicTacToe game = new TicTacToe();
-	CPU cpu = new CPU();
+	CPU cpu = new CPU(game);
         game.printBoard();
         System.out.println("Enter move in row then col");
         System.out.println("EX: 0 0");
@@ -43,7 +43,8 @@ public class TicTacToeTester
         game.takeTurn(row, col);
 	}
 	else{
-	cpu.randomMove(game);
+	cpu.smartMove();
+	//cpu.randomMove();
 	}
 
         game.printBoard();

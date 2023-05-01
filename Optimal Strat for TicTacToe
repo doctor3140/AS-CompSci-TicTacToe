@@ -1,0 +1,35 @@
+(need to edit method to take into account if opponent is going to win in the next turn)
+
+Going First:
+1. choose any of the four corners. While the middle might provide more possible wins, your opponent can only force in one spot as opposed to four. Starting in the corner forces the opponent to the middle, otherwise it is a tie game every time
+
+
+IF opponent does not choose middle. Choose any adjacent corner not occupied by the other player's mark.
+	
+	then either
+		
+		IF the opponent does not stop you from winning then connect the corner
+		
+		ELSE take either the other adjacent corner then connect through the middle or to the corner
+
+
+Going Second:
+
+IF opponent takes middle
+take random corner (probably top left)
+
+
+ELSE IF opponent takes corner
+take middle
+
+
+
+ElSE
+take middle
+
+
+then stop wins or take adjacent
+
+
+
+

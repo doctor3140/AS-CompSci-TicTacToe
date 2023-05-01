@@ -1,6 +1,6 @@
 public class argTools{
 
-	public String[] cliArgs = {"--help", "-h", "--rules","--setTime", "--worksCited", "--interact", "--setGames", "--cpuRand"};
+	public String[] cliArgs = {"--help", "-h", "--rules", "--worksCited", "--interact", "--setGames"};
 
 
 	private String[] args;

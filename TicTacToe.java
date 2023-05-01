@@ -2,7 +2,7 @@ public class TicTacToe
 {
    //copy over your constructor from the Tic Tac Toe Board activity in the previous lesson!
    private int turn;
-   private String[][] board = new String[3][3];
+   public String[][] board = new String[3][3];
    //private String mark;
    
    public TicTacToe(){
@@ -19,6 +19,10 @@ public class TicTacToe
    public int getTurn()
    {
        return turn;
+   }
+
+   public String getSpot(int row, int col){
+   	return board[row][col]; 
    }
    
    /*This method prints out the board array on to the console
@@ -53,6 +57,14 @@ public class TicTacToe
        }
 	}
 
+public boolean pickLocation(int[] spot)
+   {
+        if((spot[0]<3)&&(spot[1]<3)) 
+            return board[spot[0]][spot[1]].equals("-");
+        else
+            return false;
+   }
+
 public String getMark(){
 	if(turn%2==0){
             return "X";
@@ -79,6 +91,22 @@ public String getMark(){
            turn++;
        }
    }
+
+   public void takeTurn(int[] spot)
+   {
+	String mark;
+	   if(turn%2==0){
+            mark = "X";
+       }
+       else{
+            mark = "O";
+       }
+       if(pickLocation(spot)){
+           board[spot[0]][spot[1]]=mark;
+           turn++;
+       }
+   }
+
    
    //This method returns a boolean that returns true if a row has three X or O's in a row
    //good
