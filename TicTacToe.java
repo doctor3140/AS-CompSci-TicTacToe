@@ -221,7 +221,6 @@ public String getMark(){
    return countWins;
    }
    
-    //This method returns a boolean that returns true if a col has three X or O's
    public int possibleCol(int n)
    {
 	int countWins = 0;
@@ -239,7 +238,6 @@ public String getMark(){
    return countWins;
    }
    
-    //This method returns a boolean that returns true if either diagonal has three X or O's
    public int possibleDiag(int n)
    {
 	int countMove = 0;

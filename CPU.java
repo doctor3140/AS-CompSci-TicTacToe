@@ -49,11 +49,13 @@ private int[] checkRow(String mark, String otherMark)
                     count++;
 		    System.out.println("count++");
 		}
-		else if((count==2)&&(game.pickLocation(win))){
+		}
+
+		if((count==2)&&(game.pickLocation(win))){
 			System.out.println("Win is: "+win[0]+" "+win[1]);
 			return win;
 		}
-       }
+
    }
    return null;
    }
@@ -77,11 +79,12 @@ private int[] checkCol(String mark, String otherMark)
                     count++;
 		    System.out.println("count++");
 		}
-		else if((count==2)&&(game.pickLocation(win))){
+	       }
+		if((count==2)&&(game.pickLocation(win))){
 			System.out.println("Win is: "+win[0]+" "+win[1]);
 			return win;
 		}
-       }
+
    }
    return null;
    }
@@ -89,45 +92,61 @@ private int[] checkCol(String mark, String otherMark)
 private int[] checkDiag(String mark, String otherMark)
    {
        int count = 0;
-           for(int j=0; j<3; j++){
-		int[] win = new int[2];
-               if(game.getSpot(j, j).equals(mark))
-                    count++;
-	       else if((count==2)&&(!game.getSpot(j, j).equals(otherMark))){
-                    win[0] = j;
+	int[] win = new int[2];
+           for(int j=0; j<3; j++){	
+		
+		if(game.getSpot(j, j).equals("-")){
+		    win[0] = j;
 		    win[1] = j;
-		    return win;
+		    System.out.println("empty is: "+j+" "+j);
+		    System.out.println("count: "+count);
 		}
+
+               if(game.getSpot(j, j).equals(mark))
+                    count++; 
            }
-            count = 0;
+	       if((count==2)&&(game.pickLocation(win))){
+                    	System.out.println("Win is: "+win[0]+" "+win[1]);
+			return win;
+	       }
+            
+	   count = 0;
+	   int[] win2 = new int[2];
            for(int i=0; i<3; i++){
            int j = 2-i;
-	   int[] win = new int[2];
+	   if(game.getSpot(j, i).equals("-")){
+		    win2[0] = j;
+		    win2[1] = i;
+		    System.out.println("empty is: "+j+" "+i);
+		    System.out.println("count: "+count);
+		}
+
            if(game.getSpot(j, i).equals(mark))
                     count++; 
-	   else if((count==2)&&(!game.getSpot(j, i).equals(otherMark)))
-                    win[0] = j;
-		    win[1] = i;
-		    return win;
-
            }
-        return null;
+	   if((count==2)&&(game.pickLocation(win))){
+                    	System.out.println("Win2 is: "+win2[0]+" "+win2[1]);
+			return win2;
+	       }
+
+ 	   else
+        	return null;
    }
 
 
 
 private int[] winSpot(String mark, String otherMark){
-/*
-if(checkDiag(mark, otherMark)!=null){
+
+if((checkDiag(mark, otherMark)!=null)&&(game.pickLocation(checkDiag(mark, otherMark)))){
 	System.out.println("diag");
 	return checkDiag(mark, otherMark);
 }
-*/
-if(checkRow(mark, otherMark)!=null){
+
+else if(checkRow(mark, otherMark)!=null&&(game.pickLocation(checkRow(mark, otherMark)))){
 	System.out.println("row");
 	return checkRow(mark, otherMark);
 }
-else if(checkCol(mark, otherMark)!=null){
+else if(checkCol(mark, otherMark)!=null&&(game.pickLocation(checkCol(mark, otherMark)))){
 	System.out.println("col");
 	return checkCol(mark, otherMark);
 }
