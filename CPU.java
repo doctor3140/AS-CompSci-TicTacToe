@@ -41,13 +41,13 @@ private int[] checkRow(String mark, String otherMark)
                 if(game.getSpot(row, col).equals("-")){
 		    win[0] = row;
 		    win[1] = col;
-		    System.out.println("empty is: "+row+" "+col);
-		    System.out.println("count: "+count);
+		    //System.out.println("empty is: "+row+" "+col);
+		    //System.out.println("count: "+count);
 		}
 
 		if(game.getSpot(row, col).equals(mark)){
                     count++;
-		    System.out.println("count++");
+		    //System.out.println("count++");
 		}
 		}
 
@@ -71,13 +71,13 @@ private int[] checkCol(String mark, String otherMark)
                 if(game.getSpot(row, col).equals("-")){
 		    win[0] = row;
 		    win[1] = col;
-		    System.out.println("empty is: "+row+" "+col);
-		    System.out.println("count: "+count);
+		    //System.out.println("empty is: "+row+" "+col);
+		    //System.out.println("count: "+count);
 		}
 
 		if(game.getSpot(row, col).equals(mark)){
                     count++;
-		    System.out.println("count++");
+		    //System.out.println("count++");
 		}
 	       }
 		if((count==2)&&(game.pickLocation(win))){
@@ -98,8 +98,8 @@ private int[] checkDiag(String mark, String otherMark)
 		if(game.getSpot(j, j).equals("-")){
 		    win[0] = j;
 		    win[1] = j;
-		    System.out.println("empty is: "+j+" "+j);
-		    System.out.println("count: "+count);
+		    //System.out.println("empty is: "+j+" "+j);
+		    //System.out.println("count: "+count);
 		}
 
                if(game.getSpot(j, j).equals(mark))
@@ -117,8 +117,8 @@ private int[] checkDiag(String mark, String otherMark)
 	   if(game.getSpot(j, i).equals("-")){
 		    win2[0] = j;
 		    win2[1] = i;
-		    System.out.println("empty is: "+j+" "+i);
-		    System.out.println("count: "+count);
+		    //System.out.println("empty is: "+j+" "+i);
+		    //System.out.println("count: "+count);
 		}
 
            if(game.getSpot(j, i).equals(mark))
@@ -219,6 +219,14 @@ public void smartMove(){
 		game.takeTurn(1, 1);
 	    }
 	}
+	else if((game.getTurn() == 3)&&(game.getSpot(2, 2).equals("X"))&&(game.getSpot(0, 0).equals("O"))){
+		game.takeTurn(2, 0);	
+	}
+	else if((game.getTurn() == 3)&&(game.getSpot(2, 2).equals("X"))&&(game.getSpot(1, 1).equals("O"))){
+		dubz();	
+	}
+
+
 	else
 		dubz();
 	}
