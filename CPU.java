@@ -225,8 +225,19 @@ public void smartMove(){
 	else if((game.getTurn() == 3)&&(game.getSpot(2, 2).equals("X"))&&(game.getSpot(1, 1).equals("O"))){
 		dubz();	
 	}
-
-
+	//dual corner strat
+	else if((game.getTurn() == 3)&&(game.getSpot(1, 1).equals("O"))&&(game.getSpot(0, 1).equals("X"))&&(game.getSpot(1, 0).equals("X"))){
+		game.takeTurn(0, 0);
+	}
+	else if((game.getTurn() == 3)&&(game.getSpot(1, 1).equals("O"))&&(game.getSpot(0, 1).equals("X"))&&(game.getSpot(1, 2).equals("X"))){
+		game.takeTurn(1, 2);
+	}
+	else if((game.getTurn() == 3)&&(game.getSpot(1, 1).equals("O"))&&(game.getSpot(0, 1).equals("X"))&&(game.getSpot(1, 2).equals("X"))){
+		game.takeTurn(0, 2);
+	}
+	else if((game.getTurn() == 3)&&(game.getSpot(1, 1).equals("O"))&&(game.getSpot(2, 1).equals("X"))&&(game.getSpot(1, 2).equals("X"))){
+		game.takeTurn(2, 2);
+	}	
 	else
 		dubz();
 	}
